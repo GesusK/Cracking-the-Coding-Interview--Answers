@@ -24,13 +24,13 @@ public class UniqueCharacters {
 
     private boolean isUnique (String input) {
         input = input.toUpperCase();
-        int[] check = new int[26];
+        boolean[] check = new boolean[26];
         for(int i = 0; i < input.length(); i ++) {
             int checkIndex = input.charAt(i) - 'A';
-            if(check[checkIndex] == 1) {
+            if(check[checkIndex] == true) {
                 return false;
             }else {
-                check[checkIndex] = 1;
+                check[checkIndex] = true;
             }
         }
         return true;
