@@ -23,6 +23,9 @@ public class UniqueCharacters {
     }
 
     private boolean isUnique (String input) {
+        if(input == null) {
+            return true;
+        }
         boolean[] check = new boolean[256];
         for(int i = 0; i < input.length(); i ++) {
             int checkIndex = 128 + (int) input.charAt(i);

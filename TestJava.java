@@ -3,8 +3,7 @@
  */
 public class TestJava {
     public static void main(String[] args) {
-        char a = 'a';
-        int b = (int) a;
-        System.out.println(b);
+        String b = "null";
+        System.out.println(b == null);
     }
 }

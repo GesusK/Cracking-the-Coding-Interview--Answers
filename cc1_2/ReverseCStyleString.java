@@ -20,6 +20,9 @@ public class ReverseCStyleString {
     }
 
     private void reverse (char[] str) {
+        if(str == null) {
+            return;
+        }
         int strLength = (str.length-1);
         for(int i = 0; i < strLength/2; i++) {
             char temp = str[i];
