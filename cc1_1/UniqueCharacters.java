@@ -6,8 +6,8 @@ package cc1_1;
 public class UniqueCharacters {
 
     public static void main(String[] args) {
-        String input1 = "qweJKG";
-        String input2 = "aebqcwB";
+        String input1 = "aebqcwB";
+        String input2 = "aebqcwe";
 
         UniqueCharacters uc = new UniqueCharacters();
         if(uc.isUnique(input1)) {
@@ -23,10 +23,9 @@ public class UniqueCharacters {
     }
 
     private boolean isUnique (String input) {
-        input = input.toUpperCase();
-        boolean[] check = new boolean[26];
+        boolean[] check = new boolean[256];
         for(int i = 0; i < input.length(); i ++) {
-            int checkIndex = input.charAt(i) - 'A';
+            int checkIndex = 128 + (int) input.charAt(i);
             if(check[checkIndex] == true) {
                 return false;
             }else {
