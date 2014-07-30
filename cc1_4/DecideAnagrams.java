@@ -27,19 +27,15 @@ public class DecideAnagrams {
         int[] check = new int[128];
 
         for(int i = 0; i < str0.length(); i++) {
-            int index = (int)str0.charAt(i);
-            check[index]++;
+            check[(int)str0.charAt(i)]++;
+            check[(int)str1.charAt(i)]--;
         }
-        for(int i = 0; i < str1.length(); i++) {
-            int index = (int)str1.charAt(i);
-            if((--check[index]) < 0) {
-                return false;
-            }
-        }
+
         int count = 0;
         while(count<128 && check[count]==0) {
             count++;
         }
+
         if(count == 128) {
             return true;
         }else {
