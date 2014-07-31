@@ -30,27 +30,30 @@ public class SetZero {
             return;
         }
 
-        ArrayList<int[]> zeroPoints = new ArrayList<int[]>();
         int m = matrix.length;
         int n = matrix[0].length;
+        boolean[] row = new boolean[m];
+        boolean[] col = new boolean[n];
 
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
                 if(matrix[i][j] == 0) {
-                    int[] temp = new int[]{i,j};
-                    zeroPoints.add(temp);
+                    row[i] = true;
+                    col[j] = true;
                 }
             }
         }
 
-        for(int index = 0; index < zeroPoints.size(); index++) {
-            int i = zeroPoints.get(index)[0];
-            int j = zeroPoints.get(index)[1];
-            for(int x = 0; x < n; x++) {
-                matrix[i][x] = 0;
+        for(int i = 0; i < row.length; i++) {
+            if(row[i]) {
+                matrix[i] = new int[n];
             }
-            for(int y = 0; y < m; y++) {
-                matrix[y][j] = 0;
+        }
+        for(int i = 0; i < col.length; i++) {
+            if(col[i]) {
+                for(int j = 0; j < m; j++) {
+                    matrix[j][i] = 0;
+                }
             }
         }
     }
