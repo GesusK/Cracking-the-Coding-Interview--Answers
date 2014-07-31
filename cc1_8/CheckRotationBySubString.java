@@ -6,6 +6,7 @@ package cc1_8;
 public class CheckRotationBySubString {
 
     public static void main(String[] args) {
+        //Test quicksort method.
         String s1 = "bcedfahgij2";
 
         CheckRotationBySubString crbss = new CheckRotationBySubString();
@@ -16,7 +17,13 @@ public class CheckRotationBySubString {
         if(s1 == null || s2 == null || s1.length() != s2.length()) {
             return false;
         }
-        return true;
+        s1 = this.quickSort(s1);
+        s2 = this.quickSort(s2);
+        if(this.isSubstring(s1, s2)) {
+            return true;
+        }else {
+            return false;
+        }
     }
 
     private String quickSort(String str) {
