@@ -18,11 +18,7 @@ public class CheckRotationBySubString {
             return false;
         }
         String str = s1 + s1;
-        if(this.isSubstring(str, s2)) {
-            return true;
-        }else {
-            return false;
-        }
+        return this.isSubstring(str, s2);
     }
 
 //    private String quickSort(String str) {
