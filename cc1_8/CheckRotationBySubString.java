@@ -6,7 +6,7 @@ package cc1_8;
 public class CheckRotationBySubString {
 
     public static void main(String[] args) {
-        String s1 = "bcedghaf2";
+        String s1 = "bcedfahgij2";
 
         CheckRotationBySubString crbss = new CheckRotationBySubString();
         System.out.println(crbss.quickSort(s1));
@@ -24,25 +24,27 @@ public class CheckRotationBySubString {
             return str;
         }
 
-        int i = 1;
-        int j = str.length()-1;
+        int i = 0;
+        int j = str.length();
         char p = str.charAt(0);
 
-        while(i <= j) {
-            while(i < str.length() && str.charAt(i) <= p) {
-                i++;
+        while(true) {
+            while(str.charAt(++i) <= p) {
+                if(i == str.length()-1) {
+                    break;
+                }
             }
-            while(j > 0 && str.charAt(j) > p) {
-                j--;
+            while(str.charAt(--j) > p) {
+                if(j == 0) {
+                    break;
+                }
             }
-            if(i > j) {
+            if(i >= j) {
                 break;
             }
             str = str.substring(0,i) + str.charAt(j) + str.substring(i+1, j) + str.charAt(i) + str.substring(j+1);
-            i++;
-            j--;
         }
-        str = this.quickSort(str.substring(1,i)) + p + this.quickSort(str.substring(i));
+        str = this.quickSort(str.substring(1,j+1)) + p + this.quickSort(str.substring(j+1));
         return str;
     }
 
