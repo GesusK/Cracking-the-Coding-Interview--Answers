@@ -17,7 +17,7 @@ public class RotateMatrix {
 
         for(int i = 0; i < m.length; i++) {
             for(int j = 0; j < m[i].length; j++) {
-                System.out.print(m[i][j]+" "); 
+                System.out.print(m[i][j]+" ");
             }
             System.out.println();
         }
@@ -28,7 +28,7 @@ public class RotateMatrix {
             return;
         }
         int n = matrix.length;
-        //It's not easy to directly rotate in place. So we choose to transpose it first, then make a symmetry.
+        //It's not easy to directly rotate it in place. So we choose to transpose it first, then make a symmetry.
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < i; j++) {
                 matrix[i][j] = matrix[i][j]^matrix[j][i];
