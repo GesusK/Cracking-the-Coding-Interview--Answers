@@ -22,6 +22,9 @@ public class RemoveDuplicates {
     }
 
     private void removeDuplicates(LinkedList<Integer> list) {
+        if(list == null) {
+            return;
+        }
         for(int i = 0; i < list.size()-1; i++) {
             for(int j = 0; j < i; j++) {
                 if(list.get(i+1) == list.get(j)) {

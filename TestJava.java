@@ -4,6 +4,9 @@
 public class TestJava {
     public static void main(String[] args) {
         String b = "null";
-        System.out.println(b.substring(2,2));
+        Integer a = new Integer(123);
+        Character c = new Character('a');
+        int d = 123;
+        System.out.println((a == null)?1:2);
     }
 }
