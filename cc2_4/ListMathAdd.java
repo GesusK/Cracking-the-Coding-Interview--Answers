@@ -27,8 +27,11 @@ public class ListMathAdd {
     }
 
     private MyNode listMathAdd(MyNode<Integer> num0, MyNode<Integer> num1) {
-        if(num0 == null || num1 == null) {
-            return null;
+        if(num0 == null) {
+            return num1;
+        }
+        if(num1 == null) {
+            return num0;
         }
         MyNode<Integer> res = new MyNode<Integer>(0, null);
         MyNode<Integer> t = res;
