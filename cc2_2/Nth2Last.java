@@ -20,6 +20,10 @@ public class Nth2Last {
     }
 
     private MyNode nth2Last(MyNode head, int n) {
+        if(head == null || n < 1) {
+            return null;
+        }
+
         MyNode p = head;
         MyNode q = null;
         int count = 1;
