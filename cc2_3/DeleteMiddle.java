@@ -27,13 +27,11 @@ public class DeleteMiddle {
         if(m == null) {
             return;
         }
-        while(m.getNext() != null) {
-            m.setValue(m.getNext().getValue());
-            if(m.getNext().getNext() != null) {
-                m = m.getNext();
-            }else {
-                m.setNext(null);
-            }
+        if(m.getNext() == null) {
+            //In this situation we can do nothing.
+            return;
         }
+        m.setValue(m.getNext().getValue());
+        m.setNext(m.getNext().getNext());
     }
 }
