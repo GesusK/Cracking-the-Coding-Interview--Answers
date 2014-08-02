@@ -26,7 +26,7 @@ public class ListMathAdd {
         }
     }
 
-    private MyNode listMathAdd(MyNode<Integer> num0, MyNode<Integer> num1) {
+    private MyNode<Integer> listMathAdd(MyNode<Integer> num0, MyNode<Integer> num1) {
         if(num0 == null) {
             return num1;
         }
