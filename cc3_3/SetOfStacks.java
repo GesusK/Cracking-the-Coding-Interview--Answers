@@ -31,12 +31,12 @@ public class SetOfStacks<T> {
     }
 
     public T pop() {
-        if(cur == 0 && stackArr[cur].size() == 0) {
-            return null;
+        // here we add the consideration of empty stack caused by popAt()
+        while(cur >= 0 && stackArr[cur].size() == 0) {
+            stackArr[cur--] = null;
         }
-        if(stackArr[cur].size() == 0) {
-            stackArr[cur] = null;
-            return stackArr[--cur].pop();
+        if(cur == -1) {
+            return null;
         }
         return  stackArr[cur].pop();
     }
