@@ -11,5 +11,6 @@ public class TestJava {
         a.push(null);
         System.out.println(a.pop());
         System.out.println(a.pop());
+        System.out.println(a.pop());
     }
 }
