@@ -19,26 +19,20 @@ public class HanoiWithStack {
             System.out.println("n should be larger than 0.");
         }
         Stack<Floor> s = new Stack<Floor>();
-        char a = 'A';
-        char b = 'B';
-        char c = 'C';
 
-        s.push(new Floor(n-1, b, a, c, (n==2?true:false)));
-        s.push(new Floor(n, a, b, c, true));
-        s.push(new Floor(n-1, a, c, b, (n==2?true:false)));
+//        s.push(new Floor(n-1, b, a, c, (n==2?true:false)));
+//        s.push(new Floor(n, a, b, c, true));
+//        s.push(new Floor(n-1, a, c, b, (n==2?true:false)));
+        s.push(new Floor(n, 'A', 'B', 'C', false));
 
-        while(s.size() != 0) {
+        while(!s.empty()) {
             Floor f = s.pop();
             if(f.single) {
                 System.out.println("Move "+f.fl+" from "+f.a+" to "+f.c+".");
             }else {
-                int nn = f.fl;
-                char aa = f.a;
-                char bb = f.b;
-                char cc =f.c;
-                s.push(new Floor(nn-1, bb, aa, cc, (nn==2?true:false)));
-                s.push(new Floor(nn, aa, bb, cc, true));
-                s.push(new Floor(nn-1, aa, cc, bb, (nn==2?true:false)));
+                s.push(new Floor(f.fl-1, f.b, f.a, f.c, (f.fl==2?true:false)));
+                s.push(new Floor(f.fl, f.a, f.b, f.c, true));
+                s.push(new Floor(f.fl-1, f.a, f.c, f.b, (f.fl==2?true:false)));
             }
         }
     }
